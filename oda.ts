@@ -1,5 +1,5 @@
 /**
- * XinaBox OD01 extension for makecode
+ * domino4 ODA extension for makecode
  * Base on OLED Package from microbit/micropython Chinese community.
  *   https://github.com/makecode-extensions/OLED12864_I2C
  */
@@ -7,9 +7,9 @@
 // 6x8 font
 const Font_5x7 = hex`000000000000005F00000007000700147F147F14242A072A12231308646237495522500005030000001C2241000041221C00082A1C2A0808083E080800503000000808080808006060000020100804023E5149453E00427F400042615149462141454B311814127F1027454545393C4A49493001710905033649494936064949291E003636000000563600000008142241141414141441221408000201510906324979413E7E1111117E7F494949363E414141227F4141221C7F494949417F090901013E414151327F0808087F00417F41002040413F017F081422417F404040407F0204027F7F0408107F3E4141413E7F090909063E4151215E7F09192946464949493101017F01013F4040403F1F2040201F7F2018207F63140814630304780403615149454300007F4141020408102041417F000004020102044040404040000102040020545454787F484444383844444420384444487F3854545418087E090102081454543C7F0804047800447D40002040443D00007F10284400417F40007C041804787C0804047838444444387C14141408081414187C7C080404084854545420043F4440203C4040207C1C2040201C3C4030403C44281028440C5050503C4464544C44000836410000007F000000413608000201020402`
 
-//% color=#444444 icon="\uf26c" block="OD01"
+//% color=#444444 icon="\uf26c" block="ODA"
 //% groups='["Scrolling Display", "Positional Display", "Drawing", "Optional"]'
-namespace OD01 {
+namespace ODA {
     export enum Display {
         //% block="ON"
         On = 1,
@@ -81,28 +81,28 @@ namespace OD01 {
         }
     }
 
-    //% block="OD01 zoom in"
+    //% block="ODA zoom in"
     //% weight=60 blockGap=8
     export function zoomIn() {
         _ZOOM = 1
        cmd2(0xd6, _ZOOM)
     }
 
-    //% block="OD01 zoom out"
+    //% block="ODA zoom out"
     //% weight=60 blockGap=8
     export function zoomOut() {
         _ZOOM = 0
         cmd2(0xd6, _ZOOM)
     }
 
-    //% block="OD01 set2X"
+    //% block="ODA set2X"
     //% weight=60 blockGap=8
     export function set2X()
     {
         _DOUBLE = 1
     }
 
-    //% block="OD01 set1X"
+    //% block="ODA set1X"
     //% weight=60 blockGap=8
     export function set1X()
     {
@@ -112,7 +112,7 @@ namespace OD01 {
     /**
      * set a single pixel to be on (color = 1) or off (color = 0)
      */
-    //% blockId="OLED12864_I2C_PIXEL" block="OD01 set pixel at x %x|y %y|color %color"
+    //% blockId="OLED12864_I2C_PIXEL" block="ODA set pixel at x %x|y %y|color %color"
     //% x.max=127 x.min=0 x.defl=0
     //% y.max=63 y.min=0 y.defl=0
     //% color.max=1 color.min=0 color.defl=1
@@ -216,7 +216,7 @@ namespace OD01 {
     /**
      * show text at a specific location on screen. Note - to remove the text print an empty string ("  ") to the same location.
      */
-    //% blockId="OLED12864_I2C_SHOWSTRING" block="OD01 show string %s|at col %col|row %row|color %color"
+    //% blockId="OLED12864_I2C_SHOWSTRING" block="ODA show string %s|at col %col|row %row|color %color"
     //% s.defl='Hello'
     //% col.max=120 col.min=0 col.defl=0
     //% row.max=7 row.min=0 row.defl=0
@@ -244,7 +244,7 @@ namespace OD01 {
     /**
      * show a number at a specific location on screen. Note - to remove the number print an empty string ("  ") to the same location.
      */
-    //% blockId="OLED12864_I2C_NUMBER" block="OD01 show number %num|at col %col|row %row|color %color"
+    //% blockId="OLED12864_I2C_NUMBER" block="ODA show number %num|at col %col|row %row|color %color"
     //% num.defl=100
     //% col.max=120 col.min=0 col.defl=0
     //% row.max=7 row.min=0 row.defl=0
@@ -275,7 +275,7 @@ namespace OD01 {
     /**
      * print text to screen
      */
-    //% block="OD01 print %s|newline %newline"
+    //% block="ODA print %s|newline %newline"
     //% s.defl="string"
     //% newline.defl=true
     //% weight=88 blockGap=8 inlineInputMode=inline
@@ -306,7 +306,7 @@ namespace OD01 {
     /**
     * print a number to screen 
     */
-    //% block="OD01 print number %num|newline %newline"
+    //% block="ODA print number %num|newline %newline"
     //% s.defl="0"
     //% newline.defl=true
     //% weight=86 blockGap=8 inlineInputMode=inline
@@ -318,7 +318,7 @@ namespace OD01 {
     /**
      * draw a horizontal line. Use color = 1 to draw the line and color = 0 to erase it.
      */
-    //% blockId="OLED12864_I2C_HLINE" block="OD01 draw a horizontal line at x %x|y %y|length %len|color %color"
+    //% blockId="OLED12864_I2C_HLINE" block="ODA draw a horizontal line at x %x|y %y|length %len|color %color"
     //% x.max=127 x.min=0 x.defl=0
     //% y.max=63 y.min=0 y.defl=0
     //% len.max=128 len.min=1 len.defl=16
@@ -339,7 +339,7 @@ namespace OD01 {
     /**
      * draw a vertical line. Use color = 1 to draw the line and color = 0 to erase it.
      */
-    //% blockId="OLED12864_I2C_VLINE" block="OD01 draw a vertical line at x %x|y %y|length %len|color %color"
+    //% blockId="OLED12864_I2C_VLINE" block="ODA draw a vertical line at x %x|y %y|length %len|color %color"
     //% x.max=127 x.min=0 x.defl=0
     //% y.max=63 y.min=0 y.defl=0
     //% len.max=128 len.min=1 len.defl=16
@@ -360,7 +360,7 @@ namespace OD01 {
     /**
      * draw a rectangle. Use color = 1 to draw the rectangle and color = 0 to erase it.
      */
-    //% blockId="OLED12864_I2C_RECT" block="OD01 draw a rectangle at x1 %x1|y1 %y1|x2 %x2|y2 %y2|color %color"
+    //% blockId="OLED12864_I2C_RECT" block="ODA draw a rectangle at x1 %x1|y1 %y1|x2 %x2|y2 %y2|color %color"
     //% color.defl=1
     //% weight=20 blockGap=8 inlineInputMode=inline
     //% group="Drawing"
@@ -382,7 +382,7 @@ namespace OD01 {
      * invert display
      * @param d true: invert / false: normal, eg: true
      */
-    //% blockId="OLED12864_I2C_INVERT" block="OD01 invert display %d"
+    //% blockId="OLED12864_I2C_INVERT" block="ODA invert display %d"
     //% weight=62 blockGap=8
     //% group="Scrolling Display"
     export function invert(d: boolean = true) {
@@ -393,7 +393,7 @@ namespace OD01 {
     /**
      * clear screen
      */
-    //% blockId="OLED12864_I2C_CLEAR" block="OD01 clear display"
+    //% blockId="OLED12864_I2C_CLEAR" block="ODA clear display"
     //% weight=85 blockGap=8
     //% group="Scrolling Display"
     export function clear() {
@@ -406,7 +406,7 @@ namespace OD01 {
     /**
      * turn the display on / off. Display is ON by default.
      */
-    //% blockId="OLED12864_I2C_ON" block="OD01 display %on"
+    //% blockId="OLED12864_I2C_ON" block="ODA display %on"
     //% on.defl=1
     //% weight=10 blockGap=8
     //% group="Optional"
@@ -419,9 +419,9 @@ namespace OD01 {
     }
 
     /**
-     * power up the OD01. OD01 is initialised by default on startup. 
+     * power up the ODA. ODA is initialised by default on startup. 
      */
-    // % blockId="OLED12864_I2C_init" block="start OD01"
+    // % blockId="OLED12864_I2C_init" block="start ODA"
     // % weight=5 blockGap=8
     function init() {
         cmd1(0xAE)       // SSD1306_DISPLAYOFF
