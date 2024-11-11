@@ -1,15 +1,15 @@
 {
-    "name": "OD01",
+    "name": "ODA",
     "version": "1.0.12",
-    "description": "XinaBox OD01 OLED display: 128x64 pixel",
+    "description": "domino4 ODA OLED display: 128x64 pixel",
     "license": "MIT",
     "dependencies": {
         "core": "*"
     },
     "files": [
         "README.md",
-        "od01.ts",
-        "_locales/zh/OD01-strings.json"
+        "ODA.ts",
+        "_locales/zh/ODA-strings.json"
     ],
     "testFiles": [
         "test.ts"
