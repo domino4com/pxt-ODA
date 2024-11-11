@@ -1,18 +1,9 @@
-[![GitHub Issues](https://img.shields.io/github/issues/xinabox/pxt-Od01.svg)](https://github.com/xinabox/pxt-Od01/issues) 
-![GitHub Commit](https://img.shields.io/github/last-commit/xinabox/pxt-Od01) 
-![Maintained](https://img.shields.io/maintenance/yes/2020) 
-![Build status badge](https://github.com/xinabox/pxt-Od01/workflows/maker/badge.svg)
-![Build status badge](https://github.com/xinabox/pxt-Od01/workflows/microbit/badge.svg)
-# XinaBox OD01 MakeCode extension
+# domino4 ODA MakeCode extension
 
-The OD01 is 64x128 dot matrix monochrome OLED screen which has an SSD1306 mounted on to it. 
+The ODA is 64x128 dot matrix monochrome OLED screen which has an SSD1306 mounted on to it. 
 Use it with a micro:bit to show large amounts of data on screen at the same time.
- 
-![](od01.jpg)
 
-[Read more about it or purchase one here](https://xinabox.cc/products/od01)
-
-This library provides functions to print and draw to the OD01 OLED display. 
+This library provides functions to print and draw to the ODA OLED display. 
 
 The following Standard Printing functions are provided (with examples later):
 * print string. Write anything to screen, and specify whether to start the NEXT print on a new line.
@@ -35,36 +26,30 @@ There are also several "Drawing" functions that allow you to draw items on to th
 
 In each case you also specify a Color (soz UK for spelling). Color = 1 means the image is drawn and Color = 0 means the image is erased. 
 
-There are also "SW01 Control" functions to control the SW01:
+There are also "IWS Control" functions to control the IWS:
 * initialise OLED. This is triggered by default and you don't need to use this normally.
 * display ON / OFF.  It is ON by default
 
-NB: you do NOT need to initialise or turn on the OLED before using it - both are done when the micro:bit powers up the circuit. You might use them in advanced circumstances, e.g. power the SW01 off to preserve battery power, or initialise the OD01 if an error state has been recorded.
-
-
-## How-to guides
-
-A comprehensive set of How-to guides that show you how to use the blocks and provides simple examples of the code is available online:
-[XinaBox How-to Guides for OD01 on BBC micro:bit using MakeCode](https://drive.google.com/open?id=1_LvtXnSPReET5C7jfOD7VrZdRPcyU_uF)
+NB: you do NOT need to initialise or turn on the OLED before using it - both are done when the micro:bit powers up the circuit. You might use them in advanced circumstances, e.g. power the IWS off to preserve battery power, or initialise the ODA if an error state has been recorded.
 
 
 ## Basic Printing: Print string / number on same line / new line:
 
 ```blocks
 // Print "Number = " then "42" on the NEXT line:
-OD01.printString("Number = ", true)
-OD01.printNumber(42, true)
+ODA.printString("Number = ", true)
+ODA.printNumber(42, true)
 
 // Print "Number = " then "42" on the SAME line:
-OD01.printString("Number = ", false)
-OD01.printNumber(42, true)
+ODA.printString("Number = ", false)
+ODA.printNumber(42, true)
 
 ```
 
 ```blocks
 
 // And of course, when you want to start again just use clear screen:
-OD01.clear()
+ODA.clear()
 // Note that the clear screen function will ONLY clear stuff written to screen using the print functions.
 // Anything that has been drawn using other functions will NOT be removed when clear screen is used.
 
@@ -74,9 +59,9 @@ OD01.clear()
 
 // Use screen invert for a cool strobe effect (Warning - flashing light):
 basic.forever(function () {
-    OD01.invert(true)
+    ODA.invert(true)
     basic.pause(200)
-    OD01.invert(false)
+    ODA.invert(false)
     basic.pause(200)
 })
 
@@ -86,12 +71,12 @@ basic.forever(function () {
 
 ```blocks
 // Print "Number = " then "42" in the location specified (column = 42, row = 4, color = 1):
-OD01.String("Calling", 42, 4, 1)
-OD01.Number(446, 88, 4, 1)
+ODA.String("Calling", 42, 4, 1)
+ODA.Number(446, 88, 4, 1)
 
 // Print "Calling " then "446" in the same place but inverted (use for emphasis like bold):
-OD01.String("Calling", 42, 4, 0)
-OD01.Number(446, 88, 4, 0)
+ODA.String("Calling", 42, 4, 0)
+ODA.Number(446, 88, 4, 0)
 
 ```
 
@@ -107,11 +92,11 @@ If you wanted to show the score of a game in the top right of the screen you wou
 
 // Now put these together to create a cool blinking effect:
 basic.forever(function () {
-    OD01.String("Calling", 42, 4, 1)
-    OD01.Number(446, 88, 4, 1)
+    ODA.String("Calling", 42, 4, 1)
+    ODA.Number(446, 88, 4, 1)
     basic.pause(500)
-    OD01.String("Calling", 42, 4, 0)
-    OD01.Number(446, 88, 4, 0)
+    ODA.String("Calling", 42, 4, 0)
+    ODA.Number(446, 88, 4, 0)
     basic.pause(500)
 })
 
@@ -126,8 +111,8 @@ To remove text or numbers added using the Show methods use the following techniq
 ```blocks
 
 // Print an empty string to the location you want to remove text / numbers from:
-OD01.String("Calling", 42, 4, 1)
-OD01.String("       ", 42, 4, 1)
+ODA.String("Calling", 42, 4, 1)
+ODA.String("       ", 42, 4, 1)
 
 ```
 
@@ -143,7 +128,7 @@ Great thanks to Shaoziyang for all the heavy lifting :)
 
 MIT
 
-Copyright (c) 2019, XinaBox  
+Copyright (c) 2024, domino4  
 
 ## Supported targets
 
